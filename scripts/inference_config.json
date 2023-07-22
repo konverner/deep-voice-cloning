@@ -1,0 +1,7 @@
+{
+    "model_path": "/content/deep-voice-cloning/models/microsoft_speecht5_tts_hank_hill",
+    "speaker_model_name": "speechbrain/spkrec-xvect-voxceleb",
+    "vocoder_name": "microsoft/speecht5_hifigan",
+    "input_text": "do the things, not because they are easy, but because they are hard",
+    "output_path": "/content/deep-voice-cloning/scripts/output/do_the_things.wav"
+}

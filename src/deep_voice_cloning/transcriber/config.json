@@ -1,0 +1,7 @@
+{
+    "language_model_names": {
+        "en": "jonatasgrosman/wav2vec2-large-xlsr-53-english",
+        "fr": "jonatasgrosman/wav2vec2-large-xlsr-53-french",
+        "de": "jonatasgrosman/wav2vec2-large-xlsr-53-german"
+    }
+}

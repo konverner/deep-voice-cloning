@@ -1,0 +1,7 @@
+{
+    "en": {
+      "model_path": "microsoft/speecht5_tts",
+      "vocoder_name": "microsoft/speecht5_hifigan",
+      "speaker_model_name": "speechbrain/spkrec-xvect-voxceleb"
+    }
+}
