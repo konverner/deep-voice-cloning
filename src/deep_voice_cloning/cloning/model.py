@@ -1,6 +1,7 @@
 import os
 import json
 from typing import Dict
+from pathlib import Path
 
 import numpy as np
 import torch
@@ -17,13 +18,15 @@ class CloningModel:
                 self.config = json.load(f)[lang]
         else:
             self.config = config
-            self.speaker_embedding = torch.load(self.config['model_path'] + "/speaker_embedding.pt")[0]
+            self.speaker_embedding = torch.load(Path(self.config['model_path']) / "speaker_embedding.pt")[0]
         self.processor = SpeechT5Processor.from_pretrained(self.config['model_path'])
         self.model = SpeechT5ForTextToSpeech.from_pretrained(self.config['model_path'])
         self.vocoder = SpeechT5HifiGan.from_pretrained(self.config['vocoder_name'])
         self.device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
         self.speaker_model = EncoderClassifier.from_hparams(source=self.config['speaker_model_name'])
         self.to(self.device)
+
+
 
     def to(self, device: torch.device):
         self.model = self.model.to(device)
@@ -32,7 +35,7 @@ class CloningModel:
     def save_pretrained(self, save_directory: str):
         self.model.save_pretrained(save_directory)
         self.processor.save_pretrained(save_directory)
-        torch.save(self.speaker_embedding, save_directory + "/speaker_embedding.pt")
+        torch.save(self.speaker_embedding, Path(save_directory) / "speaker_embedding.pt")
 
     def forward(self, text: str) -> np.array:
         # tokenize text

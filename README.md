@@ -29,3 +29,41 @@ python scripts/cloning_inference.py --model_path "/content/deep-voice-cloning/mo
 ```
 
 Resulting audio file will be saved as `output_path` file.
+
+# Docker
+
+To build docker image:
+
+```
+docker build -t deep-voice-cloning .
+```
+
+To pull docker image from Hub:
+
+```angular2html
+docker pull konverner/deep-voice-cloning:latest
+```
+
+To run image in a container:
+
+```
+docker run -it --entrypoint=/bin/bash konverner/deep-voice-cloning
+```
+
+To run training in a container for example:
+
+```
+python scripts/train.py --audio_path scripts/input/hank.mp3 --output_dir models
+```
+
+To run inference in a container for example:
+
+```
+python scripts/cloning_inference.py --model_path models/microsoft_speecht5_tts_hank --input_text "do the things, not because they are easy, but because they are hard" --output_path scripts/output/do_the_things.wav
+```
+
+
+# Notebook Examples
+
+Example of using CLI for training and inference can be found in [notebook](https://github.com/konverner/deep-voice-cloning/blob/main/notebooks/CLI_Example.ipynb)
+
