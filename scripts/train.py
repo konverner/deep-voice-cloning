@@ -66,5 +66,6 @@ if __name__ == "__main__":
 
     trainer.train()
     cloning_model.save_pretrained(Path(training_config["output_dir"]) /
-                                  Path(cloning_model.config['model_path'].replace('/', '_')) +\
-                                  '_' + Path(training_config['audio_path']).stem)
+                                  Path(cloning_model.config['model_path'].replace('/', '_')
+                                       + '_' + Path(training_config['audio_path']).stem)
+                                  )
