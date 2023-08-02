@@ -30,6 +30,13 @@ python scripts/cloning_inference.py --model_path "/content/deep-voice-cloning/mo
 
 Resulting audio file will be saved as `output_path` file.
 
+# Space on Hugging Face
+
+The application is [available](https://huggingface.co/spaces/konverner/deep-voice-cloning) on Hugging Face Spaces.
+
+![image](https://github.com/konverner/deep-voice-cloning/assets/52051213/3c2aeb58-84e1-4244-b2de-d1d85e0e92a6)
+
+
 # Docker
 
 To build docker image:
